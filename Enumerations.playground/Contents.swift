@@ -34,8 +34,35 @@ remoteControl.autoSwitch()
 
 
 /************
+ indirect enum ArithmeticExpression {
+ case number(Int)
+ case addition(ArithmeticExpression, ArithmeticExpression)
+ case multiplication(ArithmeticExpression, ArithmeticExpression)
+ }
+ 
+ 
+ let five = ArithmeticExpression.number(5)
+ let four = ArithmeticExpression.number(4)
+ let sum = ArithmeticExpression.addition(five, four)
+ let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
+ 
+
  각 케이스별로 연산을 수행하고 그 값을 반환하는 evalue 함수 구현
 **************/
+
+
+indirect enum ArithmeticExpression {
+    case number(Int)
+    case addition(ArithmeticExpression, ArithmeticExpression)
+    case multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+
+
+let five = ArithmeticExpression.number(5)
+let four = ArithmeticExpression.number(4)
+let sum = ArithmeticExpression.addition(five, four)
+let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
+
 
 
 //func evaluate(_ expression: ArithmeticExpression) -> Int {
