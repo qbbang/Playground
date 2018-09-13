@@ -9,10 +9,28 @@ import UIKit
 enum RemoteControl {
     case on, off
     // code
+    mutating func autoSwitch() {
+        
+        switch self {
+        case .off:
+            self = .on
+            print("RemoteControl.on 에서 RemoteControl \(self)로 변경 되었습니다")
+        case .on:
+            self = .off
+            print("RemoteControl.oㄹㄹ 에서 RemoteControl \(self)로 변경 되었습니다")
+        }
+    }
 }
+
 
 var remoteControl = RemoteControl.on
 type(of: remoteControl)
+
+remoteControl.autoSwitch()
+
+remoteControl = RemoteControl.off
+
+remoteControl.autoSwitch()
 
 
 /************
